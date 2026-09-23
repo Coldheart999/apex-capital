@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: apex-capital-api
+    runtime: python
+    rootDir: backend
+    build:
+      dockerContext: .
+      dockerFilePath: backend/Dockerfile
+    start:
+      command: python -m uvicorn main:app --host 0.0.0.0 --port $PORT
+    env:
+      - key: SECRET_KEY
+        value: change_me_to_a_secure_random_key_in_production_987654321
+      - key: DATABASE_URL
+        value: sqlite+aiosqlite:///./apex_capital.db
+      - key: FRONTEND_URL
+        value: https://apex-capital-pi.vercel.app
+      - key: ENVIRONMENT
+        value: production
+    disk:
+      name: apex-capital-data
+      mountPath: /var/lib/backend
+      sizeGB: 1
+    healthCheck:
+      path: /health
+    plan: free
