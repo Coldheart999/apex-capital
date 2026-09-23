@@ -4,12 +4,19 @@ __pycache__/
 $py.class
 *.so
 venv/
+backend/venv/
 .env
+.env.local
+backend/.env
 *.db
 
 # Node
 node_modules/
+frontend/node_modules/
 dist/
+frontend/dist/
+frontend/.vite/
+frontend/build/
 
 # OS
 .DS_Store
