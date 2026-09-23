@@ -4,16 +4,7 @@
     "enabled": true,
     "autoAliasEnabled": true
   },
-  "builds": [
-    {
-      "src": "frontend/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist",
-        "buildCommand": "npm install && npm run build"
-      }
-    }
-  ],
+  "outputDirectory": "frontend/dist",
   "routes": [
     {
       "src": "/api/(.*)",
