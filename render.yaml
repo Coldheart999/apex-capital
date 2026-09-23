@@ -4,11 +4,12 @@ services:
     runtime: python
     rootDir: backend
     build:
-      dockerContext: .
-      dockerFilePath: backend/Dockerfile
+      command: pip install -r requirements.txt
     start:
-      command: python -m uvicorn main:app --host 0.0.0.0 --port $PORT
+      command: sh -c "python seed.py && python -m uvicorn main:app --host 0.0.0.0 --port $PORT"
     env:
+      - key: PYTHONPATH
+        value: /opt/render/repo/backend
       - key: SECRET_KEY
         value: change_me_to_a_secure_random_key_in_production_987654321
       - key: DATABASE_URL
