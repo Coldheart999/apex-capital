@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "cd frontend && npm run dev",
-    "build": "cd frontend && npm install && npm run build",
+    "build": "cd frontend && npm install && npm run build-only",
     "preview": "cd frontend && npm run preview",
     "dev:backend": "cd backend && uvicorn main:app --reload --host 0.0.0.0 --port 8000"
   },
